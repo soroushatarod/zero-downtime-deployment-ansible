@@ -10,6 +10,10 @@ Example Playbook
     - hosts: loadbalancer
       roles:
          - { role: nginx }
+         
+ create a host file on your local PC to point to the Nginx loadbalancer IP address
+ 
+ 192.168.1.0 devops-northeast.com
 
 License
 -------
