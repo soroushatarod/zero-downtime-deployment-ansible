@@ -24,7 +24,7 @@ provisioning\nginx\templates\nginx.conf.j2
 proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
 ```
 
-<h2>How does the deployment works</h2>
+<h2>How does the deployment works?</h2>
 Ansible by default runs tasks on every single host. example: if there is a task to do git pull and if there are  4 IP's in the inventory. It will run the git pull on each of these 4 servers then move on to the next task.
 
 However, in a continous deployment to provide a fault tolerent architecture. We need to change this behaviour!. This is why we would be using the serial keyword.
