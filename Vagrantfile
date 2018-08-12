@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
     v.vm.network :private_network, ip: "192.168.2.65"
   
     v.vm.provision "ansible_local" do |ansible|
-      ansible.playbook = "provisioning/deploy.yml"
+      ansible.playbook = "provisioning/provision.yml"
       ansible.inventory_path = "inventory"
       ansible.config_file = "ansible.cfg"
       ansible.limit = "all"
