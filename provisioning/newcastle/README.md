@@ -1,7 +1,7 @@
-Role Name
+Newcastle
 =========
 
-Installs php 7.2
+Installs the Newcastle application
 
 Requirements
 ------------
@@ -11,21 +11,11 @@ Needs Apache
 Role Variables
 --------------
 
-Include extensions in the vars folder
-There are two folders one for Debian and one for RedHat
+# the application release number
+release_version_number: 4
+# the path to install the application
+install_path : '/var/www/html'
 
-Include the extensions you need to install in these two folders
-
-php_extensions:
-  - php
-  - php7.2-common
-  - php7.2-mysql
-  - php7.2-curl
-  - php7.2-tidy
-  - php7.2-xml
-  - php7.2-xmlrpc
-  - php7.2-mbstring
-  - php7.2-zip
 
 Dependencies
 ------------
@@ -38,7 +28,7 @@ Example Playbook
 
     - hosts: webserver
       roles:
-         - { role: php }
+         - { role: newcastle }
 
 License
 -------
