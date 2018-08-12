@@ -1,0 +1,5 @@
+---
+- hosts: loadbalancer
+  become: yes
+  roles:
+    - nginx #loadbalancer

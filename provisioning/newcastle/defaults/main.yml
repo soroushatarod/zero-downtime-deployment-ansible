@@ -1,0 +1,8 @@
+---
+release_version_number: 4
+install_path : '/var/www/html'
+#this should match the directory name in files folder
+directory: 'newcastle'
+#the config folder name in the above directory
+config_folder_name: 'afi'
+branch_to_checkout: 'master'

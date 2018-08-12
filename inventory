@@ -1,0 +1,12 @@
+[loadbalancer]
+loadbalancer01 ansible_host=192.168.2.3 ansible_user=vagrant ansible_password=vagrant
+
+
+[webservers]
+192.168.2.5
+192.168.2.6
+192.168.2.7
+
+[webservers:vars]
+ansible_user=vagrant
+ansible_password=vagrant

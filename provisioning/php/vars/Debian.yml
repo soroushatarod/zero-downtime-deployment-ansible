@@ -1,0 +1,11 @@
+---
+php_extensions:
+  - php
+  - php7.2-common
+  - php7.2-mysql
+  - php7.2-curl
+  - php7.2-tidy
+  - php7.2-xml
+  - php7.2-xmlrpc
+  - php7.2-mbstring
+  - php7.2-zip

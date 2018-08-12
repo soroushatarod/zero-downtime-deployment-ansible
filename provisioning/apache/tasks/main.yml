@@ -1,0 +1,48 @@
+---
+  - name: Include OS-specific variables.
+    include_vars: "{{ ansible_os_family }}.yml"
+
+  - name: Install libselinux python for ansible copying file
+    yum:
+      name: libselinux-python
+      state: present
+    when: ansible_distribution == 'CentOS'
+    
+  - name: install Apache server
+    package:
+       name: "{{ apache }}" 
+       state: present
+    notify:
+    - restart apache
+
+  - name: python-passlib
+    package: 
+      name: python-passlib 
+      state: present
+    when: ansible_distribution == 'Ubuntu'
+
+  - name: ensure apache is started and starts on reboot
+    service: 
+      name: "{{ apache }}"
+      state: started
+      enabled: yes
+
+  - name: configure vhost, rwrite 
+    block:
+      - name: enable rewrite module
+        apache2_module: 
+          name: rewrite
+          state: present
+
+      - name: enable the use of .htaccess files in any projects
+        copy:
+          src: enable_htaccess.conf
+          dest: /etc/apache2/sites-available/enable_htaccess.conf
+
+      - name: enable the .htaccess vhost
+        file:
+          src: /etc/apache2/sites-available/enable_htaccess.conf
+          dest: /etc/apache2/sites-enabled/enable_htaccess.conf
+          state: link
+    when: ansible_distribution == 'Ubuntu'
+ 

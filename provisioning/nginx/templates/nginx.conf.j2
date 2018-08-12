@@ -1,0 +1,18 @@
+upstream backend {
+{% for server in groups.webservers %}
+    server {{ server }};
+{% endfor %}
+}
+
+server {
+    listen 80;
+    server_name devops-northeast.com;
+
+    location / {
+        proxy_pass http://backend;
+
+        add_header 'Cache-Control' 'no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0';
+	    expires off;
+        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504;
+    }
+}

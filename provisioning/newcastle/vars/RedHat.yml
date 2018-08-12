@@ -1,0 +1,12 @@
+---
+php_extensions:
+  - php
+  - php-common
+  - php-mysql
+  - php-tidy
+  - php-xml
+  - php-xmlrpc
+  - php-mbstring
+  - php-curl
+  - php-zip
+  - php-xdebug

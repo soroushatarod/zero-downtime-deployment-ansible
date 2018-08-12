@@ -1,0 +1,25 @@
+---
+
+- name: Set Path to clone
+  set_fact:
+    path: "{{install_path}}/{{directory}}_{{release_version_number}}"
+
+- name: Copy the code
+  copy: src=code/ dest={{ path }} mode=0755
+
+- name: copy virtual host 
+  template:
+    src: newcastle.conf.j2
+    dest: /etc/apache2/sites-available/newcastle.conf
+
+- name: enable the use of virtual host
+  file:
+    src: /etc/apache2/sites-available/newcastle.conf
+    dest: /etc/apache2/sites-enabled/newcastle.conf
+    state: link
+  notify:
+    - reload apache
+
+
+- name: check we receive a 200 header
+  command: php -l {{ path }}/index.php

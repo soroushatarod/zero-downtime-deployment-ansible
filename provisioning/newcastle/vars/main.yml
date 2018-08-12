@@ -1,0 +1,15 @@
+---
+php_extensions:
+  - php56w
+  - php56w-mcrypt
+  - php56w-mysql
+  - php56w-common
+  - php56w-mysql
+  - php56w-tidy
+  - php56w-opcache
+  - php56w-pdo
+  - php56w-xml
+  - php56w-xmlrpc
+  - php56w-mbstring
+  - php56w-pecl-memcache
+  - php56w-pecl-memcached

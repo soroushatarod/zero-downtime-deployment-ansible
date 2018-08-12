@@ -1,0 +1,26 @@
+---
+  - name: install nginx
+    package:
+      name: nginx
+      state: present
+
+  - name: start nginx on reboot and present
+    service: 
+      name: nginx
+      state: started 
+      enabled: yes
+
+  - name: add loadbalancer host
+    template: 
+      src: nginx.conf.j2
+      dest: /etc/nginx/sites-available/devops.conf
+    notify:
+      - reload nginx
+
+  - name: enable the load balancer vhost
+    file:
+      src: /etc/nginx/sites-available/devops.conf
+      dest: /etc/nginx/sites-enabled/devops.conf
+      state: link
+    notify:
+      - reload nginx
