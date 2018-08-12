@@ -44,4 +44,4 @@ The serial key means to run the role deploy to only one IP and if everything wor
 192.168.0.6
 192.168.0.7
 ```
-This means our job will run on <strong>192.168.0.5</strong. If it works fine, it will run on the remaining servers.
+This means our job will run on <strong>192.168.0.5</strong>. If it works fine, it will run on the remaining servers.
